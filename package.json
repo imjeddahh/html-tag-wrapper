@@ -1,0 +1,119 @@
+{
+  "name": "html-tag-wrapper",
+  "displayName": "HTML Tag Wrapper",
+  "description": "Wrap selected text with common HTML tags (link, strong, emphasis, custom) directly from the editor context menu.",
+  "version": "0.0.1",
+  "publisher": "imjeddahh",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other",
+    "Formatters"
+  ],
+  "keywords": [
+    "html",
+    "wrap",
+    "tag",
+    "snippet",
+    "productivity"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/imjeddahh/html-tag-wrapper.git"
+  },
+  "bugs": {
+    "url": "https://github.com/imjeddahh/html-tag-wrapper/issues"
+  },
+  "homepage": "https://github.com/imjeddahh/html-tag-wrapper#readme",
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "htmlTagWrapper.wrapLink",
+        "title": "Wrap with Link",
+        "category": "HTML Tag Wrapper"
+      },
+      {
+        "command": "htmlTagWrapper.wrapLinkBlank",
+        "title": "Wrap with Link (_blank)",
+        "category": "HTML Tag Wrapper"
+      },
+      {
+        "command": "htmlTagWrapper.wrapStrong",
+        "title": "Wrap with Strong",
+        "category": "HTML Tag Wrapper"
+      },
+      {
+        "command": "htmlTagWrapper.wrapEmphasis",
+        "title": "Wrap with Emphasis",
+        "category": "HTML Tag Wrapper"
+      },
+      {
+        "command": "htmlTagWrapper.wrapCustomTag",
+        "title": "Wrap with Custom Tag",
+        "category": "HTML Tag Wrapper"
+      }
+    ],
+    "submenus": [
+      {
+        "id": "htmlTagWrapper.submenu",
+        "label": "HTML Tag Wrapper"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "submenu": "htmlTagWrapper.submenu",
+          "group": "9_cutcopypaste",
+          "when": "editorHasSelection"
+        }
+      ],
+      "htmlTagWrapper.submenu": [
+        {
+          "command": "htmlTagWrapper.wrapLink",
+          "group": "1_links@1",
+          "when": "editorHasSelection"
+        },
+        {
+          "command": "htmlTagWrapper.wrapLinkBlank",
+          "group": "1_links@2",
+          "when": "editorHasSelection"
+        },
+        {
+          "command": "htmlTagWrapper.wrapStrong",
+          "group": "2_basic@1",
+          "when": "editorHasSelection"
+        },
+        {
+          "command": "htmlTagWrapper.wrapEmphasis",
+          "group": "2_basic@2",
+          "when": "editorHasSelection"
+        },
+        {
+          "command": "htmlTagWrapper.wrapCustomTag",
+          "group": "3_custom@1",
+          "when": "editorHasSelection"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3",
+    "@vscode/vsce": "^2.24.0"
+  }
+}

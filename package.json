@@ -2,7 +2,7 @@
   "name": "html-tag-wrapper",
   "displayName": "HTML Tag Wrapper",
   "description": "Wrap selected text with common HTML tags (link, strong, emphasis, custom) directly from the editor context menu.",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "publisher": "JeddWorker",
   "license": "MIT",
   "engines": {
